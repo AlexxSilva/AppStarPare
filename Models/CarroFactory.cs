@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace AppStarPare.Models
 {
-    public interface IVeiculoFactory
+    public class CarroFactory : VeiculoFactory
     {
-         Veiculo CriarVeiculo(string placa);
+        public override IVeiculo CriarVeiculo(string placa)
+        {
+            return new Carro(placa);
+        }
     }
 }

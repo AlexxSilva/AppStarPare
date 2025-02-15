@@ -8,6 +8,6 @@ namespace AppStarPare.Models
 {
     public interface ICalculadoraPreco
     {
-        decimal Calcular(Veiculo veiculo);
+        decimal Calcular(IVeiculo veiculo);
     }
 }

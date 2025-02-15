@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace AppStarPare.Models
 {
-    public class VeiculoFactory : IVeiculoFactory
+    public abstract class VeiculoFactory
     {
-        public Veiculo CriarVeiculo(string placa)
-        {
-            return new Veiculo(placa);
-        }
+        public abstract IVeiculo CriarVeiculo(string placa);
     }
 }

@@ -47,18 +47,18 @@ namespace AppStarPare.ViewModel
                 _usuario.Senha = Senha;
 
                 // Simulação de autenticação
-                if (_usuario.Nome == "admin" && _usuario.Senha == "1234")
-                {
-                    MensagemErro = "Login bem-sucedido!";
+                //if (_usuario.Nome == "admin" && _usuario.Senha == "1234")
+                //{
+                //    MensagemErro = "Login bem-sucedido!";
 
-                    await _navigationService.NavigateToAsync<Estacionar>();
+                   await _navigationService.NavigateToAsync<Estacionar>();
 
-                    // Aqui você pode navegar para outra página ou executar outra ação
-                }
-                else
-                {
-                    MensagemErro = "Usuário ou senha incorretos.";
-                }
+                //    // Aqui você pode navegar para outra página ou executar outra ação
+                //}
+                //else
+                //{
+                //    MensagemErro = "Usuário ou senha incorretos.";
+                //}
             }
             catch (Exception ex)
             {

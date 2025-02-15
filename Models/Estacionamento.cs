@@ -9,7 +9,7 @@ namespace AppStarPare.Models
     public class Estacionamento
     {
         private static Estacionamento _instancia;
-        private readonly List<Veiculo> _veiculos = new List<Veiculo>();
+        private readonly List<IVeiculo> _veiculos = new List<IVeiculo>();
         public event Action<String> NotificarEvento;
         private readonly ICalculadoraPreco _calculadorapreco;
 
@@ -18,13 +18,16 @@ namespace AppStarPare.Models
             this._calculadorapreco = calculadoraPreco;
 
         }
-        
+
+        public Estacionamento()
+        {
+        }
         public static Estacionamento Instancia(ICalculadoraPreco calculadoraPreco = null)
         {
             return _instancia ??= new Estacionamento(calculadoraPreco);
         }
 
-        public void RegistrarEntrada(Veiculo veiculo)
+        public void RegistrarEntrada(IVeiculo veiculo)
         {
             {
                 veiculo.HoraEntrada = DateTime.Now;
