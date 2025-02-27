@@ -2,9 +2,9 @@ using AppStarPare.ViewModel;
 
 namespace AppStarPare.View;
 
-public partial class Estacionar : ContentPage
+public partial class EntradaDeVeiculos : ContentPage
 {
-	public Estacionar(EstacionarViewModel viewModel)
+	public EntradaDeVeiculos(EntradaDeVeiculosViewModel viewModel)
 	{
 		InitializeComponent();
         BindingContext = viewModel;

@@ -2,17 +2,83 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
               xmlns:viewmodels="clr-namespace:AppStarPare.ViewModel"
+             xmlns:converter="clr-namespace:AppStarPare.Converter"
              x:Class="AppStarPare.View.Login"
              Title="Login">
 
 
-    <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Padding="20">
-        <Label Text="Login" FontSize="Large" HorizontalOptions="Center" Margin="0,0,0,20"/>
-        <Entry Placeholder="Usuário" Text="{Binding Nome}" x:Name="txtUsuario"></Entry>
-        <Entry Placeholder="Senha" Text="{Binding Senha}" x:Name="txtSenha" IsPassword="True" Margin="0,10,0,20"/>
-        <!-- Botão de Login -->
-        <Button Text="Entrar" Command="{Binding LoginCommand}" />
+    <StackLayout VerticalOptions="Center" 
+             HorizontalOptions="FillAndExpand" 
+             Padding="30"
+             Spacing="25"
+             BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#1C1C1E}">
 
-        <Label Text="{Binding MensagemErro}" TextColor="Red" HorizontalOptions="Center" Margin="0,20,0,0"/>
+        <!-- Título -->
+        <Label Text="Login" 
+           FontSize="32"
+           HorizontalOptions="Center"
+           TextColor="{AppThemeBinding Light=#2E86C1, Dark=#5DADE2}"
+           FontAttributes="Bold" />
+
+
+            <VerticalStackLayout Spacing="20">
+                <!-- Campo Usuário -->
+                <Entry Placeholder="Usuário" 
+                   Text="{Binding Nome}"
+                   PlaceholderColor="{AppThemeBinding Light=Gray, Dark=Silver}"
+                   TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                   FontSize="16"
+                   ClearButtonVisibility="WhileEditing"
+                   HorizontalOptions="Fill">
+                    <Entry.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="Android">50</On>
+                            <On Platform="iOS">45</On>
+                            <On Platform="WinUI">40</On>
+                        </OnPlatform>
+                    </Entry.HeightRequest>
+                </Entry>
+
+                <!-- Campo Senha -->
+                <Entry Placeholder="Senha" 
+                   Text="{Binding Senha}"
+                   IsPassword="True"
+                   PlaceholderColor="{AppThemeBinding Light=Gray, Dark=Silver}"
+                   TextColor="{AppThemeBinding Light=Black, Dark=White}"
+                   FontSize="16"
+                   HorizontalOptions="Fill">
+                    <Entry.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="Android">50</On>
+                            <On Platform="iOS">45</On>
+                            <On Platform="WinUI">40</On>
+                        </OnPlatform>
+                    </Entry.HeightRequest>
+                </Entry>
+            </VerticalStackLayout>
+        <!--</Border>-->
+
+        <!-- Botão de Login -->
+        <Button Text="Entrar" 
+            Command="{Binding LoginCommand}"
+            IsEnabled="{Binding IsBusy, Converter={StaticResource InverseBooleanConverter}}"
+            BackgroundColor="{AppThemeBinding Light=#2E86C1, Dark=#5DADE2}"
+            TextColor="White"
+            FontSize="16"
+            CornerRadius="10"
+            HeightRequest="50"
+            HorizontalOptions="Fill">
+            <Button.Shadow>
+                <Shadow Brush="{AppThemeBinding Light=#40000000, Dark=#40FFFFFF}"
+                    Offset="0,5"
+                    Radius="10" />
+            </Button.Shadow>
+        </Button>
+
+        <!-- Mensagem de Erro -->
+        <Label Text="{Binding MensagemErro}" 
+           TextColor="{AppThemeBinding Light=#B71C1C, Dark=#EF9A9A}"
+           FontAttributes="Italic"
+           HorizontalOptions="Center" />
     </StackLayout>
 </ContentPage>

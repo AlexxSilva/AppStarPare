@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 x:Class="AppStarPare.View.Menu"
+			 Title="Estacionar">
+    <Grid RowDefinitions="60, *">
+
+            <!-- AppBar Estilizada -->
+        <Border Grid.Row="0"
+            BackgroundColor="{AppThemeBinding Light=#2E86C1, Dark=#1B4F72}"
+            StrokeThickness="0"
+            Padding="0">
+            <Grid ColumnDefinitions="*">
+                <!-- Título Centralizado -->
+                <Label Margin="10,0,0,0" Grid.Column="1"
+                   Text="Estacionamento" 
+                   FontSize="24"
+                   TextColor="White"
+                   FontAttributes="Bold"
+                   HorizontalOptions="StartAndExpand"
+                   VerticalOptions="Center"/>
+            </Grid>
+            </Border>
+
+            <!-- Conteúdo Principal -->
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center"  Grid.Row="1">
+                <!-- Título -->
+
+                <StackLayout>
+                    <Label Text="Estacionamento" 
+	   FontSize="28"
+	   TextColor="{AppThemeBinding Light=#2C3E50, Dark=#ECF0F1}"
+	   FontAttributes="Bold"
+	   HorizontalOptions="Center"/>
+
+                    <!-- Container dos Botões -->
+                    <Border Stroke="#E0E0E0"
+		StrokeThickness="1"
+		StrokeShape="RoundRectangle 20"
+		BackgroundColor="{AppThemeBinding Light=#FFFFFF, Dark=#2C2C2C}"
+		Padding="20,25"
+		HorizontalOptions="Center"
+		WidthRequest="320">
+
+                        <VerticalStackLayout Spacing="18" x:Name="stkOpcaoMenu">
+
+                            <!-- Botão Entrada -->
+                            <Button Text="Entrada de Veículo »"
+				Command="{Binding EntradaVeiculoCommand}"
+				 BackgroundColor="{AppThemeBinding Light=#2E86C1, Dark=#5DADE2}"
+				 TextColor="White"
+				 FontSize="16"
+				 CornerRadius="10"
+				 HeightRequest="50"
+				 HorizontalOptions="Fill">
+                                <Button.Shadow>
+                                    <Shadow Brush="{AppThemeBinding Light=#40000000, Dark=#40FFFFFF}"
+					 Offset="0,5"
+					 Radius="10" />
+                                </Button.Shadow>
+                            </Button>
+                            <!-- Botões Vermelhos -->
+                            <Button Text="Saída de Veículo »"
+				Command="{Binding SaidaVeiculoCommand}"
+				BackgroundColor="{AppThemeBinding Light=#2E86C1, Dark=#5DADE2}"
+					TextColor="White"
+					FontSize="16"
+					CornerRadius="10"
+					HeightRequest="50"
+					HorizontalOptions="Fill">
+                                <Button.Shadow>
+                                    <Shadow Brush="{AppThemeBinding Light=#40000000, Dark=#40FFFFFF}"
+						Offset="0,5"
+						Radius="10" />
+                                </Button.Shadow>
+                            </Button>
+
+                            <Button Text="Veículos Estacionados"
+				Command="{Binding VeiculosEstacionadosCommand}"
+				BackgroundColor="{AppThemeBinding Light=#2E86C1, Dark=#5DADE2}"
+				TextColor="White"
+				FontSize="16"
+				CornerRadius="10"
+				HeightRequest="50"
+				HorizontalOptions="Fill">
+                                <Button.Shadow>
+                                    <Shadow Brush="{AppThemeBinding Light=#40000000, Dark=#40FFFFFF}"
+					Offset="0,5"
+					Radius="10" />
+                                </Button.Shadow>
+                            </Button>
+                            <Button Text="Histórico"
+				Command="{Binding HistoricoVeiculosCommand}"
+				    BackgroundColor="{AppThemeBinding Light=#2E86C1, Dark=#5DADE2}"
+					TextColor="White"
+					FontSize="16"
+					CornerRadius="10"
+					HeightRequest="50"
+					HorizontalOptions="Fill">
+                                <Button.Shadow>
+                                    <Shadow Brush="{AppThemeBinding Light=#40000000, Dark=#40FFFFFF}"
+					Offset="0,5"
+					Radius="10" />
+                                </Button.Shadow>
+                            </Button>
+                        </VerticalStackLayout>
+                    </Border>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+</ContentPage>
